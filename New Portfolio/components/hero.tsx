@@ -24,8 +24,7 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-xl text-balance text-base leading-relaxed text-ink/70 dark:text-paper/70 sm:text-lg">
-          I design and ship scalable APIs, payment integrations, and data-driven systems —
-          currently architecting backend services for an inventory &amp; e-commerce platform.
+          I design and build backend systems focused on reliability, scale, and real-world usage — from payment flows and integrations to the core infrastructure behind production applications.
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
@@ -37,7 +36,7 @@ export function Hero() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <a
-            href="/resume.pdf"
+            href="/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-md border border-ink/15 px-6 py-3 text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-rust hover:text-rust dark:border-paper/15"
