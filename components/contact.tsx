@@ -10,12 +10,14 @@ type Status = "idle" | "sending" | "sent" | "error";
 export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState(""); 
 
   useEffect(() => {
     if (status === "sent" || status === "error") {
       const timer = setTimeout(() => {
         setStatus("idle");
-      }, 5000);
+        setErrorMessage(""); 
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [status]);
@@ -23,6 +25,26 @@ export function Contact() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!formRef.current) return;
+
+    // Strict validation to prevent spaces from bypassing the 'required' attribute
+    const formData = new FormData(formRef.current);
+    const name = formData.get("name")?.toString().trim();
+    const email = formData.get("email")?.toString().trim();
+    const message = formData.get("message")?.toString().trim();
+
+    if (!name || !email || !message) {
+      setErrorMessage("Please fill out all fields properly.");
+      setStatus("error");
+      return;
+    }
+
+    // Basic email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage("Please enter a valid email address.");
+      setStatus("error");
+      return;
+    }
 
     setStatus("sending");
 
@@ -39,6 +61,7 @@ export function Contact() {
       })
       .catch((error) => {
         console.error("EmailJS error:", error);
+        setErrorMessage("Something went wrong. Try emailing me directly.");
         setStatus("error");
       });
   }
@@ -62,7 +85,8 @@ export function Contact() {
       </Reveal>
 
       <Reveal delay={100}>
-        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4" noValidate>
+        {/* Removed 'noValidate' here so the browser handles basic empty checks automatically */}
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label
@@ -139,7 +163,7 @@ export function Contact() {
           <svg className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
-          Something went wrong. Try emailing me directly.
+          {errorMessage || "Something went wrong. Try emailing me directly."}
         </div>
       )}
     </section>
