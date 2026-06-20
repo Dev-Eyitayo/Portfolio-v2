@@ -1,37 +1,50 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, useEffect, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { Reveal } from "./reveal";
 import { siteConfig } from "@/lib/data";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
 export function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>("idle");
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  useEffect(() => {
+    if (status === "sent" || status === "error") {
+      const timer = setTimeout(() => {
+        setStatus("idle");
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!formRef.current) return;
+
     setStatus("sending");
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+      .then(() => {
+        setStatus("sent");
+        formRef.current?.reset();
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        setStatus("error");
       });
-
-      if (!res.ok) throw new Error("Request failed");
-
-      setStatus("sent");
-      setForm({ name: "", email: "", message: "" });
-    } catch {
-      setStatus("error");
-    }
   }
 
   return (
-    <section id="contact" className="mx-auto max-w-3xl px-6 py-28">
+    <section id="contact" className="mx-auto max-w-3xl px-6 py-28 relative">
       <Reveal>
         <p className="mb-3 text-center font-mono text-xs uppercase tracking-[0.3em] text-rust">
           04 — Contact
@@ -49,35 +62,55 @@ export function Contact() {
       </Reveal>
 
       <Reveal delay={100}>
-        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4" noValidate>
           <div className="grid gap-4 sm:grid-cols-2">
-            <Field
-              id="name"
-              label="Name"
-              type="text"
-              value={form.name}
-              onChange={(v) => setForm((f) => ({ ...f, name: v }))}
-            />
-            <Field
-              id="email"
-              label="Email"
-              type="email"
-              value={form.email}
-              onChange={(v) => setForm((f) => ({ ...f, email: v }))}
-            />
+            <div>
+              <label
+                htmlFor="name"
+                className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50"
+              >
+                Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                className="w-full rounded-md border border-ink/15 bg-transparent px-4 py-3 text-sm transition-colors focus:outline-0 focus:border-rust dark:border-paper/15"
+                placeholder="Jane Doe"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                className="w-full rounded-md border border-ink/15 bg-transparent px-4 py-3 text-sm transition-colors focus:outline-0 focus:border-rust dark:border-paper/15"
+                placeholder="john.doe@example.com"
+              />
+            </div>
           </div>
 
           <div>
-            <label htmlFor="message" className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">
+            <label
+              htmlFor="message"
+              className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50"
+            >
               Message
             </label>
             <textarea
               id="message"
+              name="message"
               required
               rows={5}
-              value={form.message}
-              onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-              className="w-full rounded-md border border-ink/15 bg-transparent px-4 py-3 text-sm transition-colors focus:border-rust dark:border-paper/15"
+              className="w-full rounded-md border border-ink/15 bg-transparent px-4 py-3 text-sm transition-colors focus:outline-0 focus:border-rust dark:border-paper/15"
               placeholder="What are you building?"
             />
           </div>
@@ -89,51 +122,26 @@ export function Contact() {
           >
             {status === "sending" ? "Sending…" : "Send message"}
           </button>
-
-          {status === "sent" && (
-            <p className="text-center text-sm text-rust" role="status">
-              Message sent — I&apos;ll get back to you soon.
-            </p>
-          )}
-          {status === "error" && (
-            <p className="text-center text-sm text-red-500" role="alert">
-              Something went wrong. Try emailing me directly instead.
-            </p>
-          )}
         </form>
       </Reveal>
-    </section>
-  );
-}
 
-function Field({
-  id,
-  label,
-  type,
-  value,
-  onChange,
-}: {
-  id: string;
-  label: string;
-  type: string;
-  value: string;
-  onChange: (v: string) => void;
-}) {
-  return (
-    <div>
-      <label htmlFor={id} className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">
-        {label}
-      </label>
-      <input
-        id={id}
-        name={id}
-        type={type}
-        required
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-md border border-ink/15 bg-transparent px-4 py-3 text-sm transition-colors focus:border-rust dark:border-paper/15"
-        placeholder={type === "email" ? "you@example.com" : "Jane Doe"}
-      />
-    </div>
+      {status === "sent" && (
+        <div className="fixed top-10 left-1/2 z-50 flex w-max -translate-x-1/2 items-center gap-3 rounded-full border border-ink/10 bg-paper px-6 py-3 text-sm font-medium text-ink shadow-2xl animate-in fade-in zoom-in-95 slide-in-from-top-8 duration-300 ease-out dark:border-paper/10 dark:bg-ink dark:text-paper">
+          <svg className="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          Message sent — I&apos;ll get back to you soon.
+        </div>
+      )}
+
+      {status === "error" && (
+        <div className="fixed top-10 left-1/2 z-50 flex w-max -translate-x-1/2 items-center gap-3 rounded-full border border-ink/10 bg-paper px-6 py-3 text-sm font-medium text-ink shadow-2xl animate-in fade-in zoom-in-95 slide-in-from-top-8 duration-300 ease-out dark:border-paper/10 dark:bg-ink dark:text-paper">
+          <svg className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          Something went wrong. Try emailing me directly.
+        </div>
+      )}
+    </section>
   );
 }

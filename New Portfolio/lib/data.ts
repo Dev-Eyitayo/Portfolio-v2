@@ -105,6 +105,8 @@ export const experience: ExperienceEntry[] = [
   },
 ];
 
+
+
 export type Project = {
   title: string;
   description: string;
@@ -114,15 +116,34 @@ export type Project = {
   featured?: boolean;
 };
 
+
 export const projects: Project[] = [
   {
     title: "Bluegate Initiative Website",
     description:
       "A responsive and informative NGO website designed to showcase the mission, programs, and impact of the Bluegate Initiative, with clear calls-to-action and optimized content delivery.",
     tech: ["React", "Tailwind CSS", "FastAPI", "SEO Optimization"],
-    code: "https://github.com/Dev-Eyitayo/bluegate",
+    // code: "https://github.com/Dev-Eyitayo/bluegate",
     live: "https://bluegateinitiative.org",
     featured: true,
+  },
+  {
+    title: "Sheltly",
+    description:
+      "An AI-driven semantic search marketplace for housing solutions, integrating Explainable AI (XAI) frameworks like SHAP and LIME to provide highly relevant and transparent search results.",
+    tech: ["Next.js", "Python", "FastAPI", "Explainable AI (XAI)", "Docker"],
+    featured: true,
+    code: "https://github.com/Dev-Eyitayo/semantic-search",
+    live: "https://sheltly.vercel.app/"
+  },
+  {
+    title: "MindBridge",
+    description:
+      "An AI-powered mental health and journaling application featuring automated mood tracking and a chatbot.",
+    tech: ["Next.js", "Tailwind CSS", "Groq Integration",],
+    featured: true,
+    code: "https://github.com/Dev-Eyitayo/mindbridge",
+    live: "https://mindbridge.pxxl.run/"
   },
   {
     title: "Transport Booking Web App",
@@ -140,13 +161,15 @@ export const projects: Project[] = [
     tech: ["Django", "React", "Algorithm Optimization", "PostgreSQL"],
     code: "https://github.com/Dev-Eyitayo/UniSchedul",
     live: "https://unischedul.vercel.app/",
+    featured: false,
   },
   {
     title: "Trybemarket",
     description:
-      "A mobile application that connects students to enhance buying and selling from the comfort of their devices.",
-    tech: ["React Native", "Firebase", "Cloud Firestore", "Cloudinary"],
+      "A web application that connects students to enhance buying and selling from the comfort of their devices.",
+    tech: ["Next Js", "Firebase", "Cloud Firestore", "Cloudinary"],
     live: "https://trybemarket.online",
+    featured: true,
   },
   {
     title: "Curapets",
@@ -155,6 +178,7 @@ export const projects: Project[] = [
     tech: ["Django", "WebSockets", "Cloudinary", "Swagger Docs"],
     code: "https://github.com/Dev-Eyitayo/Pet-treatment",
     live: "https://curapet.onrender.com",
+    featured: true,
   },
   {
     title: "Car Selling Web Application",
@@ -162,12 +186,15 @@ export const projects: Project[] = [
       "A Django-based web app where users view and buy cars as uploaded by an admin, with payment integration.",
     tech: ["Django", "JavaScript", "External API Integration", "Bootstrap"],
     code: "https://github.com/Dev-Eyitayo/Car-Selling-Web-App",
+    featured: false,
   },
 ];
 
+
 export const about = {
   paragraphs: [
-    "I'm a software engineering student at Lead City University with a primary focus on backend development — building systems that stay reliable under real usage, not just in a demo.",
-    "Alongside coursework, I co-founded Trybe Node, a community for tech-driven people to learn and build together, and contribute to my church's media department exploring better ways to deliver content.",
+    "I'm someone who enjoys figuring things out - not just in code, but in how things connect, break, and improve over time.",
+    "I like clarity, simplicity, and structure, and I tend to naturally question how things can be done better or more efficiently. I'm also very reflective in how I work. I prefer to understand deeply rather than rush through outcomes.",
+    "Outside of work, I'm interested in ideas, communication, and how people build communities and shared meaning around what they do.",
   ],
 };
