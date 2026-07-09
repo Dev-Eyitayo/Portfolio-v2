@@ -53,7 +53,7 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
-              href="/resume.pdf"
+              href="/Ezekiel Eyitayo resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-md border border-ink/15 px-6 py-3 text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-rust hover:text-rust dark:border-paper/15"
