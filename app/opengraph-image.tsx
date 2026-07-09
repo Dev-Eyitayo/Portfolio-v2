@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "Ezekiel Eyitayo — Backend Software Engineer";
+export const alt = "Ezekiel Eyitayo — Software Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -17,9 +17,9 @@ const TAGLINE = "builds systems that hold up.";
 const TERMINAL_LABEL = "session — bash";
 const PROMPT = "~/eyitayo $";
 const CMD_WHOAMI = "whoami";
-const OUT_WHOAMI = "backend software engineer";
-const CMD_STACK = "ls ./stack";
-const OUT_STACK = "django · fastapi · postgresql · next.js";
+const OUT_WHOAMI = "software engineer";
+const CMD_STACK = "ls ./capabilities";
+const OUT_STACK = "apis · scalable systems · databases · cloud";
 const SITE = "eyitayo.online";
 
 // Fetches a glyph-subset font file via the Google Fonts CSS API (the pattern

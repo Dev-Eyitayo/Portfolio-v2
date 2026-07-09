@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 const LINES = [
-  { prompt: "~/eyitayo", command: "whoami", output: "backend software engineer" },
-  { prompt: "~/eyitayo", command: "ls ./stack", output: "django · fastapi · postgresql · next.js" },
+  { prompt: "~/eyitayo", command: "whoami", output: "software engineer" },
+  { prompt: "~/eyitayo", command: "ls ./capabilities", output: "apis · scalable systems · databases · cloud" },
 ];
 
 export function TerminalIntro({ className = "" }: { className?: string }) {
