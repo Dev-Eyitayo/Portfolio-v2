@@ -13,7 +13,7 @@ const rust = "#D97B3F";
 
 const EYEBROW = "AVAILABLE FOR BACKEND & FULL-STACK ROLES";
 const NAME = "Ezekiel Eyitayo";
-const TAGLINE = "builds backends that hold up.";
+const TAGLINE = "builds systems that hold up.";
 const TERMINAL_LABEL = "session — bash";
 const PROMPT = "~/eyitayo $";
 const CMD_WHOAMI = "whoami";
