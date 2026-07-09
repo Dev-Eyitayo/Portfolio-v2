@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const LINES = [
   { prompt: "~/eyitayo", command: "whoami", output: "software engineer" },
-  { prompt: "~/eyitayo", command: "ls ./capabilities", output: "apis · scalable systems · databases · cloud" },
+  { prompt: "~/eyitayo", command: "ls ./capabilities", output: "apis · scalable systems · databases" },
 ];
 
 export function TerminalIntro({ className = "" }: { className?: string }) {

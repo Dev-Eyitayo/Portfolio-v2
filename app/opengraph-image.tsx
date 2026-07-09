@@ -19,7 +19,7 @@ const PROMPT = "~/eyitayo $";
 const CMD_WHOAMI = "whoami";
 const OUT_WHOAMI = "software engineer";
 const CMD_STACK = "ls ./capabilities";
-const OUT_STACK = "apis · scalable systems · databases · cloud";
+const OUT_STACK = "apis · scalable systems · databases";
 const SITE = "eyitayo.online";
 
 // Fetches a glyph-subset font file via the Google Fonts CSS API (the pattern
