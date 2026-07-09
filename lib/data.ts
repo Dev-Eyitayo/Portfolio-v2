@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "Eyitayo",
   title: "Ezekiel Eyitayo Feranmi | Backend Software Engineer",
   description:
-    "Backend software engineer specializing in scalable APIs, payment integrations, and reliable systems. Building with Django, FastAPI, and Next.js.",
+    "Backend software engineer specializing in building scalable APIs, payment integrations, and reliable systems. Building with Django, FastAPI, and Next.js.",
   url: "https://eyitayo.online",
   email: "ezekieleyitayo2020@gmail.com",
   socials: {
@@ -128,15 +128,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "Sheltly",
-    description:
-      "An AI-driven semantic search marketplace for housing solutions, integrating Explainable AI (XAI) frameworks like SHAP and LIME to provide highly relevant and transparent search results.",
-    tech: ["Next.js", "Python", "FastAPI", "Explainable AI (XAI)", "Docker"],
-    featured: true,
-    code: "https://github.com/Dev-Eyitayo/semantic-search",
-    live: "https://sheltly.vercel.app/"
-  },
-  {
     title: "MindBridge",
     description:
       "An AI-powered mental health and journaling application featuring automated mood tracking and a chatbot.",
@@ -144,6 +135,23 @@ export const projects: Project[] = [
     featured: true,
     code: "https://github.com/Dev-Eyitayo/mindbridge",
     live: "https://mindbridge.pxxl.run/"
+  },
+  {
+    title: "Trybemarket",
+    description:
+      "A web application that connects students to enhance buying and selling from the comfort of their devices.",
+    tech: ["Next Js", "Firebase", "Cloud Firestore", "Cloudinary"],
+    live: "https://trybemarket.online",
+    featured: true,
+  },
+  {
+    title: "Sheltly",
+    description:
+      "An AI-driven semantic search marketplace for housing solutions, integrating Explainable AI (XAI) frameworks like SHAP and LIME to provide highly relevant and transparent search results.",
+    tech: ["Next.js", "Python", "FastAPI", "Explainable AI (XAI)", "Docker"],
+    featured: true,
+    code: "https://github.com/Dev-Eyitayo/semantic-search",
+    live: "https://sheltly.vercel.app/"
   },
   {
     title: "Transport Booking Web App",
@@ -162,14 +170,6 @@ export const projects: Project[] = [
     code: "https://github.com/Dev-Eyitayo/UniSchedul",
     live: "https://unischedul.vercel.app/",
     featured: false,
-  },
-  {
-    title: "Trybemarket",
-    description:
-      "A web application that connects students to enhance buying and selling from the comfort of their devices.",
-    tech: ["Next Js", "Firebase", "Cloud Firestore", "Cloudinary"],
-    live: "https://trybemarket.online",
-    featured: true,
   },
   {
     title: "Curapets",

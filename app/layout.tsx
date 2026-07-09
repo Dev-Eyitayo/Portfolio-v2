@@ -29,26 +29,18 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   robots: { index: true, follow: true },
   alternates: { canonical: siteConfig.url },
+  // og:image / twitter:image come from app/opengraph-image.tsx (file convention)
   openGraph: {
     type: "website",
     url: siteConfig.url,
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: siteConfig.title,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/og-image.jpg"],
   },
   icons: {
     icon: "/favicon.ico",

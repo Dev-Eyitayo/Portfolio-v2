@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 
 const LINES = [
-  { prompt: "~/eyitayo", command: "whoami" },
-  { prompt: "~/eyitayo", command: "cat role.txt", output: "Backend Software Engineer" },
+  { prompt: "~/eyitayo", command: "whoami", output: "backend software engineer" },
+  { prompt: "~/eyitayo", command: "ls ./stack", output: "django · fastapi · postgresql · next.js" },
 ];
 
-export function TerminalIntro() {
+export function TerminalIntro({ className = "" }: { className?: string }) {
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [done, setDone] = useState(false);
@@ -39,7 +39,9 @@ export function TerminalIntro() {
   }, [charIndex, lineIndex]);
 
   return (
-    <div className="thin-scrollbar mx-auto w-full max-w-xl overflow-x-auto rounded-lg border border-ink/10 bg-ink text-left font-mono text-sm shadow-2xl shadow-ink/10 dark:border-paper/10 dark:shadow-black/40">
+    <div
+      className={`thin-scrollbar overflow-x-auto rounded-lg border border-ink/10 bg-ink text-left font-mono text-xs shadow-2xl shadow-ink/20 dark:border-paper/10 dark:shadow-black/40 sm:text-sm ${className}`}
+    >
       <div className="flex items-center gap-1.5 border-b border-paper/10 px-4 py-2.5">
         <span className="h-2.5 w-2.5 rounded-full bg-rust/70" />
         <span className="h-2.5 w-2.5 rounded-full bg-paper/30" />
@@ -55,13 +57,13 @@ export function TerminalIntro() {
             <div key={line.command}>
               <div className="flex gap-2">
                 <span className="text-rust">{line.prompt} $</span>
-                <span>
+                <span className="whitespace-nowrap">
                   {text}
                   {isCurrent && <span className="ml-0.5 animate-blink">▋</span>}
                 </span>
               </div>
               {line.output && (i < lineIndex || done) && (
-                <div className="pl-1 text-paper/70">{line.output}</div>
+                <div className="whitespace-nowrap pl-1 text-paper/70">{line.output}</div>
               )}
             </div>
           );
