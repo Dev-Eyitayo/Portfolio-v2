@@ -147,11 +147,11 @@ export const projects: Project[] = [
   {
     title: "Sheltly",
     description:
-      "An AI-driven semantic search marketplace for housing solutions, integrating Explainable AI (XAI) frameworks like SHAP and LIME to provide highly relevant and transparent search results.",
-    tech: ["Next.js", "Python", "FastAPI", "Explainable AI (XAI)", "Docker"],
+      "Backend server for an AI-driven semantic search marketplace for housing solutions, integrating Explainable AI (XAI) frameworks like SHAP and LIME to provide highly relevant and transparent search results.",
+    tech: ["Python", "FastAPI", "Explainable AI (XAI)",],
     featured: true,
     code: "https://github.com/Dev-Eyitayo/semantic-search",
-    live: "https://sheltly.vercel.app/"
+    live: "https://sheltly-api.onrender.com/"
   },
   {
     title: "Transport Booking Web App",
@@ -166,9 +166,9 @@ export const projects: Project[] = [
     title: "Scheduling Software",
     description:
       "An intelligent scheduling system for institutions, managing classrooms, lecturers, and courses efficiently.",
-    tech: ["Django", "React", "Algorithm Optimization", "PostgreSQL"],
+    tech: ["Django", "Algorithm Optimization", "PostgreSQL"],
     code: "https://github.com/Dev-Eyitayo/UniSchedul",
-    live: "https://unischedul.vercel.app/",
+    // live: "https://unischedul.vercel.app/",
     featured: false,
   },
   {
