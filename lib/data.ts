@@ -32,22 +32,25 @@ export const navLinks = [
 
 export const skills = {
   backend: [
-    "Django REST Framework",
     "FastAPI",
+    "Django REST Framework",
     "Python",
-    "Node.js",
     "PostgreSQL",
+    "SQLAlchemy",
+    "Node.js",
     "SQL",
     "Firebase",
     "REST API Design",
   ],
-  frontend: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
+  frontend: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "JavaScript"],
   practices: [
     "System Architecture",
-    "Payment Integration",
-    "Code Review",
-    "Agile Collaboration",
+    "Payment Integration & Webhooks",
+    "Automated Reconciliation",
     "Database Design",
+    "Linux & Desktop Systems",
+    "Agile Collaboration",
+    "Code Review",
   ],
 };
 
@@ -105,8 +108,6 @@ export const experience: ExperienceEntry[] = [
   },
 ];
 
-
-
 export type Project = {
   title: string;
   description: string;
@@ -116,14 +117,28 @@ export type Project = {
   featured?: boolean;
 };
 
-
 export const projects: Project[] = [
+  {
+    title: "Kontributa",
+    description:
+      "A transparent, auditable contribution and dues collection platform for departments and organizations. Features automated bank transfer reconciliation, Monnify/Paystack webhook pipelines, multi-purse tracking, and immutable audit logs.",
+    tech: ["FastAPI", "PostgreSQL", "Next.js", "TypeScript", "SQLAlchemy", "Monnify API", "Paystack"],
+    code: "https://github.com/Dev-Eyitayo/Kontributa",
+    featured: true,
+  },
+  {
+    title: "Kitsune",
+    description:
+      "A zero-dependency Linux CLI tool and desktop integration manager that transforms any website into an isolated, standalone desktop web app using Firefox with Wayland dock isolation and smart external link routing.",
+    tech: ["Python", "Linux Desktop Integration", "Firefox Profile Engine", "Wayland / X11", "WebExtensions"],
+    code: "https://github.com/Dev-Eyitayo/kitsune",
+    featured: true,
+  },
   {
     title: "Bluegate Initiative Website",
     description:
       "A responsive and informative NGO website designed to showcase the mission, programs, and impact of the Bluegate Initiative, with clear calls-to-action and optimized content delivery.",
     tech: ["React", "Tailwind CSS", "FastAPI", "SEO Optimization"],
-    // code: "https://github.com/Dev-Eyitayo/bluegate",
     live: "https://bluegateinitiative.org",
     featured: true,
   },
@@ -131,16 +146,16 @@ export const projects: Project[] = [
     title: "MindBridge",
     description:
       "An AI-powered mental health and journaling application featuring automated mood tracking and a chatbot.",
-    tech: ["Next.js", "Tailwind CSS", "Groq Integration",],
+    tech: ["Next.js", "Tailwind CSS", "Groq Integration"],
     featured: true,
     code: "https://github.com/Dev-Eyitayo/mindbridge",
-    live: "https://mindbridge.pxxl.run/"
+    live: "https://mindbridge.pxxl.run/",
   },
   {
     title: "Trybemarket",
     description:
       "A web application that connects students to enhance buying and selling from the comfort of their devices.",
-    tech: ["Next Js", "Firebase", "Cloud Firestore", "Cloudinary"],
+    tech: ["Next.js", "Firebase", "Cloud Firestore", "Cloudinary"],
     live: "https://trybemarket.online",
     featured: true,
   },
@@ -148,10 +163,10 @@ export const projects: Project[] = [
     title: "Sheltly",
     description:
       "Backend server for an AI-driven semantic search marketplace for housing solutions, integrating Explainable AI (XAI) frameworks like SHAP and LIME to provide highly relevant and transparent search results.",
-    tech: ["Python", "FastAPI", "Explainable AI (XAI)",],
+    tech: ["Python", "FastAPI", "Explainable AI (XAI)"],
     featured: true,
     code: "https://github.com/Dev-Eyitayo/semantic-search",
-    live: "https://sheltly-api.onrender.com/"
+    live: "https://sheltly-api.onrender.com/",
   },
   {
     title: "Transport Booking Web App",
@@ -168,7 +183,6 @@ export const projects: Project[] = [
       "An intelligent scheduling system for institutions, managing classrooms, lecturers, and courses efficiently.",
     tech: ["Django", "Algorithm Optimization", "PostgreSQL"],
     code: "https://github.com/Dev-Eyitayo/UniSchedul",
-    // live: "https://unischedul.vercel.app/",
     featured: false,
   },
   {
@@ -189,7 +203,6 @@ export const projects: Project[] = [
     featured: false,
   },
 ];
-
 
 export const about = {
   paragraphs: [
