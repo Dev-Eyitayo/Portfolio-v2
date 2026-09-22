@@ -127,11 +127,35 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: "Sync360",
+    description:
+    "A business management platform with inventory, sales, order routing, and customer loyalty systems. Handle payment integrations, transactional APIs, automated reporting, and background processing for production workflows.",
+    tech: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "BullMQ", "Docker", "Akawopay"],
+    code: "https://sync360.africa",
+    featured: true,
+  },
+  {
+    title: "Toltimed Care",
+    description:
+    "A healthcare management platform for handling patient records, appointments, and medical results. Built backend services, identity verification, wallet integrations, and background processing for core healthcare workflows.",
+    tech: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "BullMQ", "Docker", "QoreID", "Velvpay"],
+    code: "https://toltimedcare.com.ng",
+    featured: true,
+  },
+  {
     title: "Kitsune",
     description:
       "A zero-dependency Linux CLI tool and desktop integration manager that transforms any website into an isolated, standalone desktop web app using Firefox with Wayland dock isolation and smart external link routing.",
     tech: ["Python", "Linux Desktop Integration", "Firefox Profile Engine", "Wayland / X11", "WebExtensions"],
     code: "https://github.com/Dev-Eyitayo/kitsune",
+    featured: true,
+  },
+  {
+    title: "Trybemarket",
+    description:
+      "A web application that connects students to enhance buying and selling from the comfort of their devices.",
+    tech: ["Next.js", "Firebase", "Cloud Firestore", "Cloudinary"],
+    live: "https://trybemarket.online",
     featured: true,
   },
   {
@@ -150,14 +174,6 @@ export const projects: Project[] = [
     featured: true,
     code: "https://github.com/Dev-Eyitayo/mindbridge",
     live: "https://mindbridge.pxxl.run/",
-  },
-  {
-    title: "Trybemarket",
-    description:
-      "A web application that connects students to enhance buying and selling from the comfort of their devices.",
-    tech: ["Next.js", "Firebase", "Cloud Firestore", "Cloudinary"],
-    live: "https://trybemarket.online",
-    featured: true,
   },
   {
     title: "Sheltly",
