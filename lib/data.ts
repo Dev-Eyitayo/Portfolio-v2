@@ -131,7 +131,7 @@ export const projects: Project[] = [
     description:
     "A business management platform with inventory, sales, order routing, and customer loyalty systems. Handle payment integrations, transactional APIs, automated reporting, and background processing for production workflows.",
     tech: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "BullMQ", "Docker", "Akawopay"],
-    code: "https://sync360.africa",
+    live: "https://sync360.africa",
     featured: true,
   },
   {
@@ -139,7 +139,7 @@ export const projects: Project[] = [
     description:
     "A healthcare management platform for handling patient records, appointments, and medical results. Built backend services, identity verification, wallet integrations, and background processing for core healthcare workflows.",
     tech: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "BullMQ", "Docker", "QoreID", "Velvpay"],
-    code: "https://toltimedcare.com.ng",
+    live: "https://toltimedcare.com.ng",
     featured: true,
   },
   {
