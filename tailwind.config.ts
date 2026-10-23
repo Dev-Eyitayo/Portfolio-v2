@@ -10,51 +10,34 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#0B0E14",
-          soft: "#10131A",
-          mute: "#1A1F2B",
+          DEFAULT: "#0F172A",
+          soft: "#1E293B",
+          mute: "#334155",
         },
         paper: {
-          DEFAULT: "#FAFAF8",
-          soft: "#F3F1EB",
-          mute: "#E8E5DC",
+          DEFAULT: "#FFFFFF",
+          soft: "#F8FAFC",
+          mute: "#E2E8F0",
         },
-        rust: {
-          DEFAULT: "#D97B3F",
-          dim: "#B8632E",
-          glow: "#F2A368",
+        accent: {
+          DEFAULT: "#059669", // Emerald 600
+          hover: "#047857",   // Emerald 700
+          glow: "#34D399",    // Emerald 400 (vibrant glow for dark mode)
+          subtle: "rgba(5, 150, 105, 0.08)",
         },
       },
       fontFamily: {
-        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
-        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
-      },
-      backgroundImage: {
-        "grid-light":
-          "linear-gradient(to right, rgba(11,14,20,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(11,14,20,0.04) 1px, transparent 1px)",
-        "grid-dark":
-          "linear-gradient(to right, rgba(250,250,248,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(250,250,248,0.04) 1px, transparent 1px)",
-      },
-      backgroundSize: {
-        grid: "32px 32px",
+        sans: ["'Instrument Sans'", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        mono: ["'IBM Plex Mono'", "ui-monospace", "monospace"],
       },
       keyframes: {
-        blink: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0" },
-        },
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(8px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        "scan-line": {
-          "0%": { transform: "translateY(-100%)" },
-          "100%": { transform: "translateY(100%)" },
         },
       },
       animation: {
-        blink: "blink 1s step-end infinite",
-        "fade-up": "fade-up 0.6s ease-out forwards",
+        "fade-in": "fade-in 0.4s ease-out forwards",
       },
     },
   },

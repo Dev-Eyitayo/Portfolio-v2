@@ -1,52 +1,54 @@
-import { Reveal } from "./reveal";
 import { about, skills } from "@/lib/data";
 
-const skillGroups = [
-  { label: "Backend", items: skills.backend },
-  { label: "Frontend", items: skills.frontend },
-  { label: "Practices", items: skills.practices },
+const skillSections = [
+  { title: "Frontend development", items: skills.frontend },
+  { title: "Backend development & databases", items: skills.backend },
+  { title: "Integrations & production tools", items: skills.integrations },
 ];
 
 export function About() {
   return (
-    <section id="about" className="mx-auto max-w-5xl px-6 py-28">
-      <Reveal>
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-rust">01 — About</p>
-        <h2 className="mb-12 text-3xl font-bold tracking-tight sm:text-4xl">
-          Engineering things that don&apos;t break under real load.
+    <section id="about" className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+      <div>
+        <span className="text-xs font-semibold uppercase tracking-wider text-accent dark:text-accent-glow">
+          About me
+        </span>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink dark:text-paper sm:text-4xl">
+          Building software that is practical, fast, and made to last.
         </h2>
-      </Reveal>
+      </div>
 
-      <div className="grid gap-12 md:grid-cols-5">
-        <Reveal className="md:col-span-3" delay={80}>
-          <div className="space-y-5 text-base leading-relaxed text-ink/75 dark:text-paper/75">
-            {about.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-        </Reveal>
+      <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-14">
+        <div className="space-y-5 text-base leading-relaxed text-slate-700 dark:text-slate-200 lg:col-span-7">
+          {about.paragraphs.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </div>
 
-        <Reveal className="md:col-span-2" delay={160}>
-          <div className="space-y-6">
-            {skillGroups.map((group) => (
-              <div key={group.label}>
-                <h3 className="mb-3 font-mono text-xs uppercase tracking-widest text-ink/50 dark:text-paper/50">
-                  {group.label}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {group.items.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-md border border-ink/10 px-3 py-1.5 text-xs font-medium text-ink/80 transition-colors hover:border-rust/50 hover:text-rust dark:border-paper/10 dark:text-paper/80"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+        <div className="space-y-6 lg:col-span-5">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#121620]">
+            <h3 className="text-base font-bold text-ink dark:text-paper">What I bring to your project</h3>
+            <div className="mt-5 space-y-6">
+              {skillSections.map((group) => (
+                <div key={group.title}>
+                  <h4 className="text-xs font-semibold text-slate-500 dark:text-paper/60">
+                    {group.title}
+                  </h4>
+                  <div className="mt-2.5 flex flex-wrap gap-1.5">
+                    {group.items.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-paper/85"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

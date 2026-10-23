@@ -11,10 +11,10 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-ink/10 px-6 py-10 dark:border-paper/10">
-      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 sm:flex-row">
-        <p className="font-mono text-xs text-ink/50 dark:text-paper/50">
-          © {year} {siteConfig.name}
+    <footer className="border-t border-slate-200 px-6 py-10 dark:border-white/10">
+      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-5 sm:flex-row">
+        <p className="text-xs text-slate-500 dark:text-paper/60">
+          © {year} {siteConfig.name}. Built with care and intention.
         </p>
 
         <div className="flex items-center gap-5">
@@ -23,7 +23,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="text-ink/50 transition-colors hover:text-rust dark:text-paper/50"
+            className="text-slate-500 transition-colors hover:text-accent dark:text-paper/60 dark:hover:text-accent-glow"
           >
             <Github className="h-4 w-4" />
           </a>
@@ -32,7 +32,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="text-ink/50 transition-colors hover:text-rust dark:text-paper/50"
+            className="text-slate-500 transition-colors hover:text-accent dark:text-paper/60 dark:hover:text-accent-glow"
           >
             <Linkedin className="h-4 w-4" />
           </a>
@@ -41,7 +41,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="X (Twitter)"
-            className="text-ink/50 transition-colors hover:text-rust dark:text-paper/50"
+            className="text-slate-500 transition-colors hover:text-accent dark:text-paper/60 dark:hover:text-accent-glow"
           >
             <XIcon className="h-4 w-4" />
           </a>

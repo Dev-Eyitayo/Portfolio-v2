@@ -2,58 +2,24 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "Ezekiel Eyitayo — Software Engineer";
+export const alt = "Ezekiel Eyitayo — Full-Stack Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const ink = "#0B0E14";
-const inkSoft = "#10131A";
-const paper = "#FAFAF8";
-const rust = "#D97B3F";
-
-const EYEBROW = "AVAILABLE FOR BACKEND & FULL-STACK ROLES";
-const NAME = "Ezekiel Eyitayo";
-const TAGLINE = "builds systems that hold up.";
-const TERMINAL_LABEL = "session — bash";
-const PROMPT = "~/eyitayo $";
-const CMD_WHOAMI = "whoami";
-const OUT_WHOAMI = "software engineer";
-const CMD_STACK = "ls ./capabilities";
-const OUT_STACK = "apis · scalable systems · databases";
-const SITE = "eyitayo.online";
-
-// Fetches a glyph-subset font file via the Google Fonts CSS API (the pattern
-// documented in the Next.js OG image guide). Returns null on any failure so the
-// image still renders with the bundled fallback font.
-async function loadGoogleFont(family: string, weight: number, text: string) {
-  try {
-    const css = await (
-      await fetch(
-        `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}:wght@${weight}&text=${encodeURIComponent(text)}`
-      )
-    ).text();
-    const url = css.match(/src: url\((.+?)\) format\('(?:opentype|truetype)'\)/)?.[1];
-    if (!url) return null;
-    const res = await fetch(url);
-    return res.ok ? await res.arrayBuffer() : null;
-  } catch {
-    return null;
-  }
-}
+const bg = "#0A0D14";
+const cardBg = "#121620";
+const textLight = "#F8FAFC";
+const textMuted = "#94A3B8";
+const accent = "#10B981";
 
 export default async function OpenGraphImage() {
-  const monoText = [EYEBROW, TERMINAL_LABEL, PROMPT, CMD_WHOAMI, OUT_WHOAMI, CMD_STACK, OUT_STACK, SITE].join("");
-  const [inter, mono, portrait] = await Promise.all([
-    loadGoogleFont("Inter", 700, NAME + TAGLINE),
-    loadGoogleFont("JetBrains Mono", 500, monoText),
-    readFile(join(process.cwd(), "public", "ezekiel.jpg")),
-  ]);
-
-  const fonts: { name: string; data: ArrayBuffer; weight: 500 | 700; style: "normal" }[] = [];
-  if (inter) fonts.push({ name: "Inter", data: inter, weight: 700, style: "normal" });
-  if (mono) fonts.push({ name: "JetBrains Mono", data: mono, weight: 500, style: "normal" });
-
-  const portraitSrc = `data:image/jpeg;base64,${portrait.toString("base64")}`;
+  let portraitSrc = "";
+  try {
+    const portrait = await readFile(join(process.cwd(), "public", "ezekiel.jpg"));
+    portraitSrc = `data:image/jpeg;base64,${portrait.toString("base64")}`;
+  } catch (e) {
+    console.error("Could not load portrait for OG image", e);
+  }
 
   return new ImageResponse(
     (
@@ -63,188 +29,135 @@ export default async function OpenGraphImage() {
           height: "100%",
           display: "flex",
           position: "relative",
-          backgroundColor: ink,
-          fontFamily: "Inter",
+          backgroundColor: bg,
+          padding: "70px 80px",
+          alignItems: "center",
+          justifyContent: "space-between",
+          fontFamily: "system-ui, -apple-system, sans-serif",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            display: "flex",
-            backgroundImage:
-              "linear-gradient(to right, rgba(250,250,248,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(250,250,248,0.05) 1px, transparent 1px)",
-            backgroundSize: "34px 34px",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            right: -140,
-            top: -140,
-            width: 560,
-            height: 560,
-            display: "flex",
-            borderRadius: 9999,
-            background:
-              "radial-gradient(circle, rgba(217,123,63,0.22) 0%, rgba(217,123,63,0) 70%)",
-          }}
-        />
-
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "64px 80px",
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "column", maxWidth: 700 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              <div
-                style={{
-                  width: 10,
-                  height: 10,
-                  display: "flex",
-                  borderRadius: 9999,
-                  backgroundColor: rust,
-                }}
-              />
-              <div
-                style={{
-                  display: "flex",
-                  fontFamily: "JetBrains Mono",
-                  fontSize: 17,
-                  letterSpacing: 4,
-                  color: rust,
-                }}
-              >
-                {EYEBROW}
-              </div>
-            </div>
-
+        <div style={{ display: "flex", flexDirection: "column", maxWidth: 680 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              fontSize: 18,
+              fontWeight: 600,
+              color: accent,
+            }}
+          >
             <div
               style={{
-                display: "flex",
-                marginTop: 28,
-                fontSize: 74,
-                fontWeight: 700,
-                lineHeight: 1.05,
-                letterSpacing: -2,
-                color: paper,
+                width: 10,
+                height: 10,
+                borderRadius: 9999,
+                backgroundColor: "#10B981",
               }}
-            >
-              {NAME}
-            </div>
-            <div
-              style={{
-                display: "flex",
-                marginTop: 4,
-                fontSize: 44,
-                fontWeight: 700,
-                lineHeight: 1.15,
-                letterSpacing: -1,
-                color: "rgba(250,250,248,0.45)",
-              }}
-            >
-              {TAGLINE}
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                marginTop: 40,
-                width: 620,
-                borderRadius: 14,
-                overflow: "hidden",
-                backgroundColor: inkSoft,
-                border: "1px solid rgba(250,250,248,0.12)",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "12px 20px",
-                  borderBottom: "1px solid rgba(250,250,248,0.08)",
-                }}
-              >
-                <div style={{ display: "flex", width: 11, height: 11, borderRadius: 9999, backgroundColor: "rgba(217,123,63,0.7)" }} />
-                <div style={{ display: "flex", width: 11, height: 11, borderRadius: 9999, backgroundColor: "rgba(250,250,248,0.3)" }} />
-                <div style={{ display: "flex", width: 11, height: 11, borderRadius: 9999, backgroundColor: "rgba(250,250,248,0.3)" }} />
-                <div
-                  style={{
-                    display: "flex",
-                    marginLeft: 10,
-                    fontFamily: "JetBrains Mono",
-                    fontSize: 15,
-                    color: "rgba(250,250,248,0.4)",
-                  }}
-                >
-                  {TERMINAL_LABEL}
-                </div>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 7,
-                  padding: "18px 22px",
-                  fontFamily: "JetBrains Mono",
-                  fontSize: 21,
-                }}
-              >
-                <div style={{ display: "flex", gap: 12 }}>
-                  <div style={{ display: "flex", color: rust }}>{PROMPT}</div>
-                  <div style={{ display: "flex", color: paper }}>{CMD_WHOAMI}</div>
-                </div>
-                <div style={{ display: "flex", color: "rgba(250,250,248,0.65)" }}>{OUT_WHOAMI}</div>
-                <div style={{ display: "flex", gap: 12 }}>
-                  <div style={{ display: "flex", color: rust }}>{PROMPT}</div>
-                  <div style={{ display: "flex", color: paper }}>{CMD_STACK}</div>
-                </div>
-                <div style={{ display: "flex", color: "rgba(250,250,248,0.65)" }}>{OUT_STACK}</div>
-              </div>
-            </div>
+            />
+            AVAILABLE FOR PROJECTS & FULL-TIME ROLES
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 26 }}>
+          <div
+            style={{
+              display: "flex",
+              marginTop: 24,
+              fontSize: 68,
+              fontWeight: 800,
+              letterSpacing: -1.5,
+              color: textLight,
+            }}
+          >
+            Ezekiel Eyitayo
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              marginTop: 8,
+              fontSize: 34,
+              fontWeight: 600,
+              color: textMuted,
+            }}
+          >
+            Full-stack developer with a strong backend foundation.
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              gap: 12,
+              marginTop: 40,
+            }}
+          >
             <div
               style={{
                 display: "flex",
-                padding: 10,
-                borderRadius: 9999,
-                border: "2px solid rgba(217,123,63,0.55)",
+                backgroundColor: cardBg,
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: 10,
+                padding: "10px 18px",
+                fontSize: 16,
+                fontWeight: 500,
+                color: textLight,
               }}
             >
-              <img
-                src={portraitSrc}
-                width={280}
-                height={280}
-                style={{ borderRadius: 9999, objectFit: "cover" }}
-                alt=""
-              />
+              Next.js &amp; React
             </div>
             <div
               style={{
                 display: "flex",
-                fontFamily: "JetBrains Mono",
-                fontSize: 19,
-                color: "rgba(250,250,248,0.55)",
+                backgroundColor: cardBg,
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: 10,
+                padding: "10px 18px",
+                fontSize: 16,
+                fontWeight: 500,
+                color: textLight,
               }}
             >
-              {SITE}
+              Python &amp; FastAPI / Django
+            </div>
+            <div
+              style={{
+                display: "flex",
+                backgroundColor: cardBg,
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: 10,
+                padding: "10px 18px",
+                fontSize: 16,
+                fontWeight: 500,
+                color: textLight,
+              }}
+            >
+              PostgreSQL &amp; Payments
             </div>
           </div>
         </div>
+
+        {portraitSrc ? (
+          <div
+            style={{
+              display: "flex",
+              padding: 8,
+              borderRadius: 32,
+              backgroundColor: cardBg,
+              border: "1px solid rgba(255,255,255,0.12)",
+            }}
+          >
+            <img
+              src={portraitSrc}
+              width={280}
+              height={280}
+              style={{ borderRadius: 24, objectFit: "cover" }}
+              alt=""
+            />
+          </div>
+        ) : null}
       </div>
     ),
     {
       ...size,
-      fonts: fonts.length > 0 ? fonts : undefined,
     }
   );
 }

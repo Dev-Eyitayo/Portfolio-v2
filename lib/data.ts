@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Ezekiel Eyitayo Feranmi",
   shortName: "Eyitayo",
-  title: "Ezekiel Eyitayo Feranmi | Backend Software Engineer",
+  title: "Ezekiel Eyitayo Feranmi — Full-Stack Developer",
   description:
-    "Backend software engineer specializing in building scalable APIs, payment integrations, and reliable systems. Building with Django, FastAPI, and Next.js.",
+    "Full-stack developer with a strong backend foundation. I build complete, fast websites and web applications with Next.js, React, Python (FastAPI/Django), and PostgreSQL.",
   url: "https://eyitayo.online",
   email: "ezekieleyitayo2020@gmail.com",
   socials: {
@@ -14,12 +14,15 @@ export const siteConfig = {
   keywords: [
     "Ezekiel Eyitayo Feranmi",
     "Eyitayo",
-    "Software Engineer",
-    "Backend Developer",
     "Full Stack Developer",
-    "Django Developer",
-    "FastAPI Developer",
+    "Web Developer",
+    "Backend Developer",
+    "Software Engineer",
     "Next.js Developer",
+    "Python Developer",
+    "FastAPI",
+    "Django",
+    "PostgreSQL",
   ],
 };
 
@@ -31,26 +34,28 @@ export const navLinks = [
 ];
 
 export const skills = {
-  backend: [
-    "FastAPI",
-    "Django REST Framework",
-    "Python",
-    "PostgreSQL",
-    "SQLAlchemy",
-    "Node.js",
-    "SQL",
-    "Firebase",
-    "REST API Design",
+  frontend: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "Responsive Web Design",
   ],
-  frontend: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "JavaScript"],
-  practices: [
-    "System Architecture",
-    "Payment Integration & Webhooks",
-    "Automated Reconciliation",
-    "Database Design",
-    "Linux & Desktop Systems",
-    "Agile Collaboration",
-    "Code Review",
+  backend: [
+    "Python (FastAPI & Django)",
+    "Node.js & NestJS",
+    "REST API Architecture",
+    "PostgreSQL & SQL",
+    "Redis & Caching",
+    "Database Optimization",
+  ],
+  integrations: [
+    "Payment Gateways (Paystack, Monnify, Velvpay)",
+    "Authentication & Security",
+    "Webhooks & Third-Party APIs",
+    "Docker & Linux Deployment",
+    "Background Jobs & Queues",
   ],
 };
 
@@ -65,18 +70,17 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
-    role: "Backend Developer",
+    role: "Backend & Systems Developer",
     company: "The Insight Technologies",
     period: "May 2026 — Present",
     current: true,
     summary:
-      "Working on Sync360, a comprehensive inventory and e-commerce management platform designed to streamline inventory operations, sales workflows, and business management processes.",
+      "Working on Sync360, an all-in-one inventory and business management platform designed to help African businesses handle stock, sales, customer orders, and finances.",
     highlights: [
-      "Architect and maintain backend APIs powering core platform functionality and business workflows.",
-      "Led the end-to-end integration of Buy-Now-Pay-Later (BNPL) services, designing secure payment flows, handling transactional states, and ensuring reliable payment processing.",
-      "Collaborate with product and engineering teams during standups and technical planning sessions to define requirements, design database schemas, and align on implementation strategies.",
-      "Develop scalable backend services and integrations that support inventory management, order processing, and platform growth.",
-      "Contribute to system architecture discussions, code reviews, and technical decision-making to improve maintainability and performance.",
+      "Built and maintained core backend APIs that power customer orders, inventory updates, and multi-store management.",
+      "Led the end-to-end integration of Buy-Now-Pay-Later (BNPL) payment services, ensuring seamless checkouts and safe payment verification.",
+      "Collaborated closely with designers and frontend developers to deliver smooth, responsive user experiences.",
+      "Designed and optimized database schemas to keep query speeds fast as business data grows.",
     ],
   },
   {
@@ -84,26 +88,25 @@ export const experience: ExperienceEntry[] = [
     company: "Blueapril Technologies",
     period: "January 2026 — April 2026",
     summary:
-      "Contributed to software development initiatives while gaining hands-on experience with agile engineering practices, project planning, and collaborative software delivery.",
+      "Contributed to client web development initiatives while practicing modern agile workflows, team code reviews, and software planning.",
     highlights: [
-      "Participated in sprint planning, task estimation, and execution activities to ensure timely project delivery.",
-      "Conducted peer code reviews, helping maintain code quality, security standards, and development best practices.",
-      "Developed administrative dashboards and internal tooling to improve operational workflows.",
-      "Collaborated with team members on architectural planning and requirement analysis for a proposed multi-tenant cooperative management platform.",
-      "Worked closely with developers and stakeholders to translate business requirements into actionable technical solutions.",
+      "Built clean internal admin dashboards and web tooling to speed up day-to-day operations.",
+      "Participated actively in daily sprint reviews, task estimations, and feature delivery.",
+      "Contributed to architectural planning for a multi-tenant cooperative management platform.",
+      "Reviewed code with senior engineers to ensure high standards of security and maintainability.",
     ],
   },
   {
     role: "Backend Developer",
-    company: "Toltim (Healthcare Startup)",
+    company: "Toltimedcare",
     period: "August 2025 — April 2026",
     summary:
-      "Managed and enhanced backend infrastructure supporting a healthcare platform, focusing on reliability, scalability, and secure user experiences.",
+      "Developed and managed backend services supporting a digital healthcare platform focused on patient care, appointment booking, and medical records.",
     highlights: [
-      "Maintained and improved backend services critical to the platform's daily operations.",
-      "Designed and implemented RESTful APIs supporting core healthcare workflows and platform functionality.",
-      "Optimized backend processes to improve system stability, response times, and overall platform performance.",
-      "Collaborated with cross-functional teams to support feature delivery and ensure system reliability.",
+      "Designed and implemented REST APIs for patient registration, doctor appointments, and medical result delivery.",
+      "Integrated secure user verification and digital wallet functionality.",
+      "Improved server stability and reduced API response times across core features.",
+      "Worked across teams to ensure sensitive healthcare data remained safe and compliant.",
     ],
   },
 ];
@@ -114,116 +117,89 @@ export type Project = {
   tech: string[];
   code?: string;
   live?: string;
-  featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
     title: "Kontributa",
     description:
-      "A transparent, auditable contribution and dues collection platform for departments and organizations. Features automated bank transfer reconciliation, Monnify/Paystack webhook pipelines, multi-purse tracking, and immutable audit logs.",
-    tech: ["FastAPI", "PostgreSQL", "Next.js", "TypeScript", "SQLAlchemy", "Monnify API", "Paystack"],
+      "A group contribution and dues platform for student associations, clubs, and organizations. Automates bank transfer reconciliation in real time, generates digital receipts, and provides clear, auditable financial records.",
+    tech: ["FastAPI", "PostgreSQL", "Next.js", "TypeScript", "Monnify", "Paystack"],
     code: "https://github.com/Dev-Eyitayo/Kontributa",
-    featured: true,
   },
   {
     title: "Sync360",
     description:
-    "A business management platform with inventory, sales, order routing, and customer loyalty systems. Handle payment integrations, transactional APIs, automated reporting, and background processing for production workflows.",
-    tech: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "BullMQ", "Docker", "Akawopay"],
+      "A business management web platform featuring live inventory tracking, point-of-sale workflows, order routing, and customer loyalty rewards. Built to keep businesses running smoothly every day.",
+    tech: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "Docker", "Akawopay"],
     live: "https://sync360.africa",
-    featured: true,
   },
   {
     title: "Toltimed Care",
     description:
-    "A healthcare management platform for handling patient records, appointments, and medical results. Built backend services, identity verification, wallet integrations, and background processing for core healthcare workflows.",
-    tech: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "BullMQ", "Docker", "QoreID", "Velvpay"],
+      "A digital healthcare portal that simplifies patient appointments, medical records management, and doctor schedules. Features identity verification, wallet integrations, and automated notifications.",
+    tech: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "Docker", "QoreID"],
     live: "https://toltimedcare.com.ng",
-    featured: true,
   },
   {
     title: "Kitsune",
     description:
-      "A zero-dependency Linux CLI tool and desktop integration manager that transforms any website into an isolated, standalone desktop web app using Firefox with Wayland dock isolation and smart external link routing.",
-    tech: ["Python", "Linux Desktop Integration", "Firefox Profile Engine", "Wayland / X11", "WebExtensions"],
+      "A fast, standalone Linux desktop tool that turns any web app into an isolated desktop application with custom docks, dedicated profiles, and smart link handling.",
+    tech: ["Python", "Linux Systems", "Wayland & X11", "Firefox Engine"],
     code: "https://github.com/Dev-Eyitayo/kitsune",
-    featured: true,
   },
   {
     title: "Trybemarket",
     description:
-      "A web application that connects students to enhance buying and selling from the comfort of their devices.",
-    tech: ["Next.js", "Firebase", "Cloud Firestore", "Cloudinary"],
+      "A campus marketplace web app where students can safely buy and sell textbooks, electronics, and school supplies directly from each other with fast search and instant messaging.",
+    tech: ["Next.js", "Firebase", "Firestore", "Tailwind CSS"],
     live: "https://trybemarket.online",
-    featured: true,
   },
   {
-    title: "Bluegate Initiative Website",
+    title: "Bluegate Initiative",
     description:
-      "A responsive and informative NGO website designed to showcase the mission, programs, and impact of the Bluegate Initiative, with clear calls-to-action and optimized content delivery.",
-    tech: ["React", "Tailwind CSS", "FastAPI", "SEO Optimization"],
+      "An official responsive website for a non-profit organization, built to communicate community impact, showcase active projects, and connect volunteers and donors worldwide.",
+    tech: ["React", "FastAPI", "Tailwind CSS", "SEO"],
     live: "https://bluegateinitiative.org",
-    featured: true,
   },
   {
     title: "MindBridge",
     description:
-      "An AI-powered mental health and journaling application featuring automated mood tracking and a chatbot.",
-    tech: ["Next.js", "Tailwind CSS", "Groq Integration"],
-    featured: true,
+      "A mental wellness and guided journaling application with mood tracking insights and an interactive AI conversation assistant to help people reflect and build daily habits.",
+    tech: ["Next.js", "Tailwind CSS", "Groq AI"],
     code: "https://github.com/Dev-Eyitayo/mindbridge",
     live: "https://mindbridge.pxxl.run/",
   },
   {
     title: "Sheltly",
     description:
-      "Backend server for an AI-driven semantic search marketplace for housing solutions, integrating Explainable AI (XAI) frameworks like SHAP and LIME to provide highly relevant and transparent search results.",
-    tech: ["Python", "FastAPI", "Explainable AI (XAI)"],
-    featured: true,
+      "A modern housing search API powered by semantic search algorithms, helping people describe the kind of home they want in plain words and find the best matching rentals.",
+    tech: ["Python", "FastAPI", "Semantic Search"],
     code: "https://github.com/Dev-Eyitayo/semantic-search",
     live: "https://sheltly-api.onrender.com/",
   },
   {
-    title: "Transport Booking Web App",
+    title: "Flexiryde",
     description:
-      "A seamless bus ride booking system displaying seat availability, departure times, and generating digital tickets.",
-    tech: ["Django REST Framework", "React", "PostgreSQL", "Tailwind CSS"],
+      "A bus ticket booking web application that makes long-distance travel easy with real-time seat availability, route schedules, and instant digital travel tickets.",
+    tech: ["Django REST", "React", "PostgreSQL", "Tailwind CSS"],
     code: "https://github.com/Dev-Eyitayo/Flexiryde",
     live: "https://flexiryde.vercel.app",
-    featured: true,
-  },
-  {
-    title: "Scheduling Software",
-    description:
-      "An intelligent scheduling system for institutions, managing classrooms, lecturers, and courses efficiently.",
-    tech: ["Django", "Algorithm Optimization", "PostgreSQL"],
-    code: "https://github.com/Dev-Eyitayo/UniSchedul",
-    featured: false,
   },
   {
     title: "Curapets",
     description:
-      "A pet doctor appointment booking API with appointment scheduling, real-time notifications, and reminders.",
+      "A veterinary appointment scheduling API that helps pet owners book vet consultations, receive appointment reminders, and access their pets' medical history.",
     tech: ["Django", "WebSockets", "Cloudinary", "Swagger Docs"],
     code: "https://github.com/Dev-Eyitayo/Pet-treatment",
     live: "https://curapet.onrender.com",
-    featured: true,
-  },
-  {
-    title: "Car Selling Web Application",
-    description:
-      "A Django-based web app where users view and buy cars as uploaded by an admin, with payment integration.",
-    tech: ["Django", "JavaScript", "External API Integration", "Bootstrap"],
-    code: "https://github.com/Dev-Eyitayo/Car-Selling-Web-App",
-    featured: false,
   },
 ];
 
 export const about = {
   paragraphs: [
-    "I'm someone who enjoys figuring things out - not just in code, but in how things connect, break, and improve over time.",
-    "I like clarity, simplicity, and structure, and I tend to naturally question how things can be done better or more efficiently. I'm also very reflective in how I work. I prefer to understand deeply rather than rush through outcomes.",
-    "Outside of work, I'm interested in ideas, communication, and how people build communities and shared meaning around what they do.",
+    "I'm a full-stack developer who enjoys building complete web applications from start to finish. I like turning ideas into finished products that look clean on screen, feel fast to use, and run on reliable systems under the hood.",
+    "My edge is being backend-heavy: while I write modern, accessible frontend code with Next.js, React, and Tailwind CSS, I take pride in building the databases, APIs, payment flows, and server logic that make businesses work. If you need a website that also handles payments, user accounts, and real-time data, I make sure everything connects smoothly.",
+    "I value clear communication, honest estimates, and building things that last. When I'm not writing code, I enjoy exploring system architecture, learning about product strategy, and sharing ideas with fellow builders.",
   ],
 };

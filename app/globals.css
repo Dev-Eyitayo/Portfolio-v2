@@ -29,48 +29,36 @@ html {
 }
 
 body {
-  @apply bg-paper text-ink dark:bg-ink dark:text-paper transition-colors duration-300;
+  @apply bg-white text-ink dark:bg-[#0A0D14] dark:text-paper transition-colors duration-200 antialiased;
 }
 
 ::selection {
-  @apply bg-rust/30 text-ink dark:text-paper;
+  @apply bg-accent/20 text-ink dark:text-paper;
 }
 
 /* visible keyboard focus */
 :focus-visible {
-  outline: 2px solid theme("colors.rust.DEFAULT");
-  outline-offset: 3px;
-  border-radius: 2px;
+  outline: 2px solid theme("colors.accent.DEFAULT");
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
-/* Reveal-on-scroll primitive driven by IntersectionObserver toggling .is-visible */
+/* Reveal transition - always visible by default so content never gets stuck invisible */
 .reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
+/* Running border animation */
+@keyframes border-run {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
-/* thin scrollbar for code-styled panels */
-.thin-scrollbar::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
-}
-.thin-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-rust/40 rounded-full;
-}
-.thin-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+.animate-border-run {
+  animation: border-run 3.5s linear infinite;
 }
