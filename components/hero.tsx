@@ -18,7 +18,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-5 max-w-xl text-balance text-base leading-relaxed text-slate-600 dark:text-paper/75 sm:text-lg">
-            Hi, I&apos;m Ezekiel Eyitayo. I build complete web applications and websites from the ground up—crafting clean, responsive user interfaces backed by reliable databases, secure payment flows, and rock-solid APIs.
+            Hi, I&apos;m Ezekiel Eyitayo. I build complete web applications and websites from the ground up by crafting clean, responsive user interfaces backed by reliable backend systems, secure payment flows, and rock-solid APIs.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">

@@ -44,7 +44,7 @@ export const skills = {
   ],
   backend: [
     "Python (FastAPI & Django)",
-    "Node.js & NestJS",
+    "Node.js (Express Js & NestJS)",
     "REST API Architecture",
     "PostgreSQL & SQL",
     "Redis & Caching",

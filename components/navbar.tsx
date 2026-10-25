@@ -56,7 +56,7 @@ export function Navbar() {
       className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-2xl"
     >
       <nav
-        className="flex items-center justify-between rounded-full border border-slate-200/90 bg-white/85 px-4 py-2 shadow-lg shadow-slate-900/5 backdrop-blur-md transition-all duration-300 dark:border-white/10 dark:bg-[#0A0D14]/85 dark:shadow-black/40 sm:px-5"
+        className="flex items-center justify-between rounded-full border border-slate-200/90 bg-white/85 px-4 py-4 shadow-sm shadow-slate-900/5 backdrop-blur-md transition-all duration-300 dark:border-white/10 dark:bg-[#0A0D14]/85 dark:shadow-black/40 sm:px-5"
         aria-label="Primary"
       >
         <a
