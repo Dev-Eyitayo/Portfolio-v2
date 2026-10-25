@@ -3,8 +3,9 @@ export const siteConfig = {
   shortName: "Eyitayo",
   title: "Ezekiel Eyitayo Feranmi — Full-Stack Developer",
   description:
-    "Full-stack developer with a strong backend foundation. I build complete, fast websites and web applications with Next.js, React, Python (FastAPI/Django), and PostgreSQL.",
+    "Full-stack developer with a strong backend foundation. I build products that help businesses solve problems, serve their customers better and make money.",
   url: "https://eyitayo.online",
+  ogVersion: "v2",
   email: "ezekieleyitayo2020@gmail.com",
   socials: {
     github: "https://github.com/Dev-Eyitayo",
@@ -20,6 +21,7 @@ export const siteConfig = {
     "Software Engineer",
     "Next.js Developer",
     "Python Developer",
+    "Node.js Developer",
     "FastAPI",
     "Django",
     "PostgreSQL",
