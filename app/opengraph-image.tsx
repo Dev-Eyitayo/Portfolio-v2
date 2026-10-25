@@ -104,10 +104,10 @@ export default async function OpenGraphImage() {
           <div
             style={{
               display: "flex",
-              marginTop: 12,
+              marginTop: 16,
               fontSize: 32,
               fontWeight: 600,
-              lineHeight: 1.25,
+              lineHeight: 1.3,
               color: textMuted,
             }}
           >
@@ -117,52 +117,15 @@ export default async function OpenGraphImage() {
           <div
             style={{
               display: "flex",
-              gap: 12,
+              alignItems: "center",
               marginTop: 36,
+              fontSize: 20,
+              fontWeight: 600,
+              color: "#64748B",
+              letterSpacing: 0.5,
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                backgroundColor: cardBg,
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: 10,
-                padding: "10px 18px",
-                fontSize: 16,
-                fontWeight: 500,
-                color: textLight,
-              }}
-            >
-              Next.js &amp; React
-            </div>
-            <div
-              style={{
-                display: "flex",
-                backgroundColor: cardBg,
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: 10,
-                padding: "10px 18px",
-                fontSize: 16,
-                fontWeight: 500,
-                color: textLight,
-              }}
-            >
-              Python &amp; FastAPI / Django
-            </div>
-            <div
-              style={{
-                display: "flex",
-                backgroundColor: cardBg,
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: 10,
-                padding: "10px 18px",
-                fontSize: 16,
-                fontWeight: 500,
-                color: textLight,
-              }}
-            >
-              PostgreSQL &amp; Payments
-            </div>
+            eyitayo.online
           </div>
         </div>
 

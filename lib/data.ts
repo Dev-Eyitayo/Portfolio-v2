@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Full-stack developer with a strong backend foundation. I build products that help businesses solve problems, serve their customers better and make money.",
   url: "https://eyitayo.online",
-  ogVersion: "v2",
+  ogVersion: "v3",
   email: "ezekieleyitayo2020@gmail.com",
   socials: {
     github: "https://github.com/Dev-Eyitayo",
