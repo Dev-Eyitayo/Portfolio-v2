@@ -14,7 +14,7 @@ export function Hero() {
           </p>
 
           <h1 className="mt-4 text-balance text-4xl font-bold tracking-tight text-ink dark:text-paper sm:text-5xl lg:text-[3.5rem] lg:leading-[1.12]">
-            Full-stack developer with a strong backend foundation.
+            I build products that help businesses solve problems and grow.
           </h1>
 
           <p className="mt-5 max-w-xl text-balance text-base leading-relaxed text-slate-600 dark:text-paper/75 sm:text-lg">
