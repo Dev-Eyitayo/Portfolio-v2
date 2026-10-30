@@ -24,23 +24,23 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-md dark:bg-white dark:text-ink dark:hover:bg-slate-100"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-md dark:bg-white dark:text-ink dark:hover:bg-slate-100"
             >
               See my work
               <ArrowDown className="h-4 w-4" />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-ink transition-all hover:border-accent hover:text-accent dark:border-white/20 dark:bg-transparent dark:text-paper dark:hover:border-accent-glow dark:hover:text-accent-glow"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-ink transition-all hover:border-accent hover:text-accent dark:border-white/20 dark:bg-transparent dark:text-paper dark:hover:border-accent-glow dark:hover:text-accent-glow"
             >
               Get in touch
               <Mail className="h-4 w-4" />
             </a>
             <a
-              href="/Eyitayo Ezekiel Resume.pdf"
+              href="/Eyitayo_Ezekiel_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold text-slate-600 transition-colors hover:text-accent dark:text-paper/70 dark:hover:text-accent-glow"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-slate-600 transition-colors hover:text-accent dark:text-paper/70 dark:hover:text-accent-glow"
             >
               Resume
               <Download className="h-4 w-4" />

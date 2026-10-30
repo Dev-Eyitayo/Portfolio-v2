@@ -15,6 +15,7 @@ export const siteConfig = {
   keywords: [
     "Ezekiel Eyitayo Feranmi",
     "Eyitayo",
+    "Eyitayo Ezekiel",
     "Full Stack Developer",
     "Web Developer",
     "Backend Developer",
@@ -66,23 +67,26 @@ export type ExperienceEntry = {
   company: string;
   period: string;
   current?: boolean;
+  location?: string;
   summary: string;
   highlights: string[];
 };
 
 export const experience: ExperienceEntry[] = [
   {
-    role: "Backend & Systems Developer",
-    company: "The Insight Technologies",
-    period: "May 2026 — Present",
+    role: "Backend Engineer",
+    company: "Sync360",
+    period: "06/2026 – Present",
     current: true,
+    location: "Remote",
     summary:
       "Working on Sync360, an all-in-one inventory and business management platform designed to help African businesses handle stock, sales, customer orders, and finances.",
     highlights: [
-      "Built and maintained core backend APIs that power customer orders, inventory updates, and multi-store management.",
-      "Led the end-to-end integration of Buy-Now-Pay-Later (BNPL) payment services, ensuring seamless checkouts and safe payment verification.",
-      "Collaborated closely with designers and frontend developers to deliver smooth, responsive user experiences.",
-      "Designed and optimized database schemas to keep query speeds fast as business data grows.",
+      "Rebuilt inventory management around batch-level tracking, ensuring stock valuation, cost of goods sold, and profit calculations reflected actual purchase costs across different batches. Reduced inventory-related complaints from 3+ per week to zero after release.",
+      "Built a multi-tier customer loyalty system that lets businesses reward repeat purchases and improve customer retention.",
+      "Integrated Akawopay's Buy Now, Pay Later (BNPL) service into checkout, implementing webhook processing, transactional state management, and retry handling to support reliable payment flows while enabling businesses to receive payment upfront on credit-approved sales.",
+      "Improved storefront response times by diagnosing slow database queries, adding indexes, and implementing cache invalidation to keep product data consistent with database updates.",
+      "Built automated asynchronous ETL reporting pipelines using Celery and openpyxl, pulling sales, expense, and inventory data into scheduled monthly Excel reports and eliminating 3+ hours of manual bookkeeping weekly.",
     ],
   },
   {
@@ -99,16 +103,16 @@ export const experience: ExperienceEntry[] = [
     ],
   },
   {
-    role: "Backend Developer",
+    role: "Backend Engineer",
     company: "Toltimedcare",
     period: "August 2025 — April 2026",
     summary:
       "Developed and managed backend services supporting a digital healthcare platform focused on patient care, appointment booking, and medical records.",
     highlights: [
-      "Designed and implemented REST APIs for patient registration, doctor appointments, and medical result delivery.",
-      "Integrated secure user verification and digital wallet functionality.",
-      "Improved server stability and reduced API response times across core features.",
-      "Worked across teams to ensure sensitive healthcare data remained safe and compliant.",
+      "Built backend services for a healthcare booking platform that matches patients with verified nurses and community health workers, using a modular API architecture that separates business logic, data access and external integrations.",
+      "Implemented geolocation-based matching so patients are paired with workers within good proximity.",
+      "Engineered the platform’s payment system, integrating Velvpay for wallet operations with response validation and failure handling, and QoreID for identity verification.",
+      "Containerised services with Docker and moved background work to Celery and Redis, separating request handling from asynchronous workloads.",
     ],
   },
 ];

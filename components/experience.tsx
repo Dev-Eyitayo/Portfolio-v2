@@ -36,8 +36,13 @@ export function Experience() {
               </span>
             </div>
 
-            <div className="mb-4 mt-1 flex items-center gap-2">
+            <div className="mb-2 mt-1 flex flex-wrap items-center gap-2">
               <p className="font-semibold text-accent dark:text-accent-glow">{entry.company}</p>
+              {entry.location && (
+                <span className="rounded-full border border-slate-300 bg-slate-100 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.12em] text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-paper/60">
+                  {entry.location}
+                </span>
+              )}
               {entry.current && (
                 <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent dark:text-accent-glow">
                   Current
